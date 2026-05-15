@@ -39,24 +39,6 @@ This project was developed to demonstrate concepts of Operating System resource 
 <img width="1600" height="812" alt="analytics" src="https://github.com/user-attachments/assets/f28b86a7-e591-4df6-a1ff-5e164f81795b" />
 <img width="1600" height="762" alt="about" src="https://github.com/user-attachments/assets/5fe35160-8a48-42e3-a246-700950f5e4e1" />
 
-### 🏠 Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
----
-
-### ⚙️ Process Manager
-
-![Process Manager](screenshots/process-manager.png)
-
----
-
-### 📊 Resource Monitoring
-
-![Resource Monitoring](screenshots/resource-monitor.png)
-
----
-
 ## ▶️ How to Run the Project
 
 1. Clone or download the repository
