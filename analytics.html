@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>⚡ OS</h2>
+        <a href="index.html"><i class="fa fa-home"></i></a>
+        <a href="processes.html"><i class="fa fa-microchip"></i></a>
+        <a href="analytics.html"><i class="fa fa-chart-line"></i></a>
+        <a href="analyzer.html"><i class="fa fa-brain"></i></a>
+        <a href="about.html"><i class="fa fa-info"></i></a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <h1>OS Resource Monitor</h1>
+            <div id="time"></div>
+        </div>
+
+        <h2>📊 Analytics Dashboard</h2>
+
+        <!-- CPU GRAPH -->
+        <div class="card">
+            <h3>CPU Usage Trend</h3>
+            <canvas id="cpuChart"></canvas>
+        </div>
+
+        <!-- MEMORY GRAPH -->
+        <div class="card">
+            <h3>Memory Usage Trend</h3>
+            <canvas id="memChart"></canvas>
+        </div>
+
+        <!-- PROCESS DISTRIBUTION -->
+        <div class="card">
+            <h3>Top Processes Distribution</h3>
+            <canvas id="procChart"></canvas>
+        </div>
+
+        <!-- SMART INSIGHTS -->
+        <div class="card">
+            <h3>🧠 Smart Insights</h3>
+            <ul id="insights"></ul>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/analytics.js"></script>
+
+<!-- TIME -->
+<script>
+setInterval(() => {
+    let el = document.getElementById("time");
+    if(el){
+        el.innerText = new Date().toLocaleTimeString();
+    }
+}, 1000);
+</script>
+
+<!-- ACTIVE SIDEBAR -->
+<script>
+let current = window.location.pathname.split("/").pop().toLowerCase();
+if (current === "") current = "index.html";
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+    let linkPage = link.getAttribute("href").trim().toLowerCase();
+    if (linkPage === current) {
+        link.classList.add("active");
+    }
+});
+</script>
+
+</body>
+</html>

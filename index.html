@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OS Resource Monitor</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+    <h2>⚡ OS</h2>
+    <a href="index.html" data-page="home"><i class="fa fa-home"></i></a>
+    <a href="processes.html" data-page="processes"><i class="fa fa-microchip"></i></a>
+    <a href="analytics.html" data-page="analytics"><i class="fa fa-chart-line"></i></a>
+    <a href="analyzer.html" data-page="analyzer"><i class="fa fa-brain"></i></a>
+    <a href="about.html" data-page="about"><i class="fa fa-info"></i></a>
+</div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+    <div class="topbar">
+        <h1>OS Resource Monitor</h1>
+        <div id="time"></div>
+    </div>
+
+    <h2>📊 Dashboard</h2>
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <h1>OS Resource Monitor</h1>
+            <div id="time"></div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+
+    <div class="card circle-card">
+        <h3>CPU Usage</h3>
+        <div class="circle">
+            <div class="inner" id="cpuValue">45%</div>
+        </div>
+    </div>
+
+    <div class="card circle-card">
+        <h3>Memory Usage</h3>
+        <div class="circle mem">
+            <div class="inner" id="memValue">60%</div>
+        </div>
+    </div>
+s
+</div>
+
+        <!-- GRAPH -->
+        <div class="chart">
+            <canvas id="cpuChart"></canvas>
+        </div>
+
+        <!-- PROCESS PREVIEW -->
+      <table id="dashboardProcesses">
+    <tr>
+        <th>Name</th>
+        <th>CPU %</th>
+        <th>Memory (MB)</th>
+    </tr>
+</table>
+
+        </div>
+
+        <!-- SMART SUGGESTIONS -->
+        <div class="suggestions" id="suggestions">
+            <h3>Smart Suggestions</h3>
+            <p>System running smoothly ✅</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/charts.js"></script>
+
+<!-- ACTIVE SIDEBAR SCRIPT -->
+<script>
+const current = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+    if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+    }
+});
+</script>
+
+<script>
+setInterval(() => {
+    let el = document.getElementById("time");
+    if (el) {
+        el.innerText = new Date().toLocaleTimeString();
+    }
+}, 1000);
+</script>
+
+</body>
+</html>

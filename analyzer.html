@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Analyzer</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Chart.js -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- 🔥 ALERT POPUP -->
+<div id="alertBox" class="alert-box"></div>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>⚡ OS</h2>
+       <a href="index.html" data-page="home"><i class="fa fa-home"></i></a>
+       <a href="processes.html" data-page="processes"><i class="fa fa-microchip"></i></a>
+       <a href="analytics.html" data-page="analytics"><i class="fa fa-chart-line"></i></a>
+       <a href="analyzer.html" data-page="analyzer"><i class="fa fa-brain"></i></a>
+       <a href="about.html" data-page="about"><i class="fa fa-info"></i></a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+    <div class="topbar">
+        <h1>OS Resource Monitor</h1>
+        <div id="time"></div>
+    </div>
+
+        <h1>🧠 Smart Analyzer</h1>
+
+        <!-- HEALTH SCORE -->
+        <div class="card analyzer-card">
+            <h3>System Health Score</h3>
+            <div class="health-circle">
+    <div class="inner-score" id="healthScore">--</div>
+</div>
+        </div>
+
+     <!-- LIVE GRAPHS -->
+<div class="card">
+    <h3>📊 Live System Activity</h3>
+    <canvas id="cpuChart"></canvas>
+    <canvas id="memChart"></canvas>
+</div>
+
+        <!-- ISSUES -->
+        <div class="card">
+            <h3>⚠️ Detected Issues</h3>
+            <ul id="issues"></ul>
+        </div>
+
+        <!-- SUGGESTIONS -->
+        <div class="card">
+            <h3>💡 Suggestions</h3>
+            <ul id="suggestionsList"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/analyzer.js"></script>
+<script>
+const current = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+    if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+    }
+});
+</script>
+
+<script>
+setInterval(() => {
+    let el = document.getElementById("time");
+    if (el) {
+        el.innerText = new Date().toLocaleTimeString();
+    }
+}, 1000);
+</script>
+
+</body>
+</html>

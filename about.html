@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Project</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>⚡ OS</h2>
+    <a href="index.html" data-page="home"><i class="fa fa-home"></i></a>
+    <a href="processes.html" data-page="processes"><i class="fa fa-microchip"></i></a>
+    <a href="analytics.html" data-page="analytics"><i class="fa fa-chart-line"></i></a>
+    <a href="analyzer.html" data-page="analyzer"><i class="fa fa-brain"></i></a>
+    <a href="about.html" data-page="about"><i class="fa fa-info"></i></a>
+</div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <h1>OS Resource Monitor</h1>
+            <div id="time"></div>
+        </div>
+
+        <h2>📘 About Project</h2>
+
+        <!-- PROJECT DESCRIPTION -->
+        <div class="card">
+            <h3>Project Overview</h3>
+            <p>
+                The OS Resource Monitor and Smart Analyzer is a web-based application designed 
+                to monitor system performance in real time. It provides detailed insights into CPU usage, 
+                memory utilization, and running processes, along with intelligent suggestions for optimization.
+            </p>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="card">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Real-time CPU and Memory monitoring</li>
+                <li>Process management and live process tracking</li>
+                <li>Smart Analyzer with system health score</li>
+                <li>Graph-based visualization using Chart.js</li>
+                <li>Alert system for high resource usage</li>
+                <li>Interactive and responsive UI dashboard</li>
+            </ul>
+        </div>
+
+        <!-- TECHNOLOGIES -->
+        <div class="card">
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>Frontend: HTML, CSS, JavaScript</li>
+                <li>Backend: Python (Flask)</li>
+                <li>Library: psutil (for system data)</li>
+                <li>Charts: Chart.js</li>
+            </ul>
+        </div>
+
+        <!-- OBJECTIVE -->
+        <div class="card">
+            <h3>Objective</h3>
+            <p>
+                The objective of this project is to simulate a modern operating system monitoring tool 
+                that helps users understand system performance and take actions to optimize it effectively.
+            </p>
+        </div>
+
+        <!-- TEAM -->
+        <div class="card">
+            <h3>Team Members</h3>
+            <p>
+                Arya Pokharkar <br>
+                Payal Kalokhe <br>  
+                Meenakshi Kothawade <br>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- TIME SCRIPT -->
+<script>
+setInterval(() => {
+    let el = document.getElementById("time");
+    if(el){
+        el.innerText = new Date().toLocaleTimeString();
+    }
+}, 1000);
+</script>
+<!-- ACTIVE SIDEBAR SCRIPT -->
+<script>
+const current = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+    if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+    }
+});
+</script>
+
+<script>
+setInterval(() => {
+    let el = document.getElementById("time");
+    if (el) {
+        el.innerText = new Date().toLocaleTimeString();
+    }
+}, 1000);
+</script>
+
+</body>
+</html>

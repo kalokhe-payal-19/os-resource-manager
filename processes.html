@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processes</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>⚡ OS</h2>
+        <a href="index.html" data-page="home"><i class="fa fa-home"></i></a>
+        <a href="processes.html" data-page="processes"><i class="fa fa-microchip"></i></a>
+        <a href="analytics.html" data-page="analytics"><i class="fa fa-chart-line"></i></a>
+        <a href="analyzer.html" data-page="analyzer"><i class="fa fa-brain"></i></a>
+        <a href="about.html" data-page="about"><i class="fa fa-info"></i></a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+    <div class="topbar">
+        <h1>OS Resource Monitor</h1>
+        <div id="time"></div>
+    </div>
+
+        <h1>⚙️ Processes</h1>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <i class="fa fa-search"></i>
+            <input type="text" id="search" placeholder="Search process...">
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls">
+            <button onclick="sortBy('cpu')" class="btn">Sort CPU</button>
+            <button onclick="sortBy('memory')" class="btn">Sort Memory</button>
+        </div>
+
+        <!-- TABLE -->
+        <table id="procTable">
+            <tr>
+                <th>Name</th>
+                <th>PID</th>
+                <th>CPU %</th>
+                <th>Memory (MB)</th>
+                <th>Status</th>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/processes.js"></script>
+<script>
+const current = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+    if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+    }
+});
+</script>
+
+<script>
+setInterval(() => {
+    let el = document.getElementById("time");
+    if (el) {
+        el.innerText = new Date().toLocaleTimeString();
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
