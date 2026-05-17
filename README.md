@@ -63,12 +63,6 @@ python server.py
 
 ---
 
-## 🌐 Live Demo
-
-(Add GitHub Pages or deployment link here later)
-
----
-
 ## 👩‍💻 Developer
 
 **Payal Kalokhe**
